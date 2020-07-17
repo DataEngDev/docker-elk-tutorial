@@ -10,7 +10,7 @@ services:
       #   - api_data:/docker_api
         # (HOST:CONTAINER)
       ports:
-        - "5000:5000"
+        - "8000:5000"
         # (HOST:CONTAINER)
 
       logging:
