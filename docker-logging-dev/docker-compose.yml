@@ -6,15 +6,15 @@ services:
       # command: python manage.py runserver 0.0.0.0:8000
       image: yennanliu/sgtaximap_docker:v1
       restart: always
-      # volumes:
-      #   - api_data:/docker_api
+      volumes:
+        - api_data:/docker_api
         # (HOST:CONTAINER)
       ports:
         - "8000:5000"
         # (HOST:CONTAINER)
 
       logging:
-        driver: syslog 
+        driver: syslog
         options:
             syslog-address: tcp://0.0.0.0:5000
             tag: web-container-tcp
@@ -23,4 +23,7 @@ services:
       #   driver: gelf
       #   options:
       #     gelf-address: udp://0.0.0.0:12201
-      #     tag: web-container-udp      
+      #     tag: web-container-udp 
+
+volumes:
+    api_data:
